@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Results | MOComm MLS</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .results-wrap{max-width:900px;margin:0 auto;padding:60px 32px;}
+  .results-wrap h1{font-size:26px;color:var(--dark);margin-bottom:10px;}
+  .results-wrap p{color:var(--gray);font-size:15px;margin-bottom:24px;}
+  .filter-chip{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--sage);color:var(--dark);
+    font-size:13px;font-weight:700;
+    padding:6px 14px;border-radius:20px;margin:0 8px 8px 0;
+  }
+  .placeholder-note{
+    border:2px dashed var(--line);border-radius:var(--radius);
+    padding:40px;text-align:center;color:var(--gray);font-size:14px;
+    margin-top:20px;
+  }
+  .back-link{
+    display:inline-block;margin-top:26px;
+    color:var(--mid);font-weight:700;font-size:14px;
+  }
+</style>
+</head>
+<body>
+
+    <div class="top-banner">
+    <div class="wrap">
+      <img src="logo-banner.png" alt="MOComm — Missouri's Commercial MLS" class="banner-image">
+      <div class="divider"></div>
+      <div class="tagline">Missouri's Commercial MLS &mdash; Built by Commercial Agents, for Commercial Agents</div>
+    </div>
+  </div>
+
+  <div class="results-wrap">
+    <h1>Search Results</h1>
+    <p>Showing listings matching your filters:</p>
+    <div id="chips"></div>
+    <div class="placeholder-note">
+      This is a placeholder results page. Connect it to your listings API or MLS feed to display real properties here.
+    </div>
+    <a class="back-link" href="index.html">&larr; Back to search</a>
+  </div>
+
+  <script>
+    var params = new URLSearchParams(window.location.search);
+    var chipsEl = document.getElementById('chips');
+    var labels = { location: 'Location', type: 'Property Type' };
+    var any = false;
+    params.forEach(function (value, key) {
+      any = true;
+      var chip = document.createElement('span');
+      chip.className = 'filter-chip';
+      chip.textContent = (labels[key] || key) + ': ' + value;
+      chipsEl.appendChild(chip);
+    });
+    if (!any) {
+      var chip = document.createElement('span');
+      chip.className = 'filter-chip';
+      chip.textContent = 'All listings';
+      chipsEl.appendChild(chip);
+    }
+  </script>
+</body>
+</html>
