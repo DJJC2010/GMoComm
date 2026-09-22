@@ -360,6 +360,46 @@
     letter-spacing:0.3px;
   }
 
+    /* ---------- JOIN NOW BANNER ---------- */
+  .join-banner{
+    background:var(--mid);
+    padding:48px 0 64px;
+    text-align:center;
+  }
+  .join-banner-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:22px;
+  }
+  .join-banner-inner h3{
+    font-size:22px;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:6px;
+  }
+  .join-banner-inner p{
+    font-size:15px;
+    color:#e3efe7;
+    max-width:520px;
+  }
+  .join-btn{
+    display:inline-block;
+    background:#fff;
+    color:var(--dark);
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:0.4px;
+    padding:16px 44px;
+    border-radius:999px;
+    white-space:nowrap;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .join-btn:hover{
+    background:var(--sage);
+    transform:translateY(-1px);
+  }
+
   /* ---------- FOOTER ---------- */
   footer{
     background:var(--dark);
@@ -448,5 +488,7 @@
     .search-form{flex-direction:column;}
     .search-btn{align-self:stretch;justify-content:center;}
     .better-banner h2{font-size:26px;}
+    .join-banner-inner{flex-direction:column;text-align:center;}
+    .join-btn{width:100%;text-align:center;}
     .built-by .card{flex-direction:column;text-align:center;}
   }
